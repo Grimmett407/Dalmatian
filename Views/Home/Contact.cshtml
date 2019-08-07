@@ -1,0 +1,118 @@
+﻿@model Dalmatian.Models.Email
+
+    <div class="page-titles-img title-space-lg parallax-overlay bg-parallax" data-jarallax='{"speed": 0.4}' style='background-image: url("/Assets/Imgs/maxresdefault.jpg");background-position:top center;'>
+        <div class="container">
+            <div class="row">
+                <div class=" col-md-12">
+                    <h1 class="text-uppercase" style="font-size:40px;">Contact us</h1>
+                </div>
+            </div>
+        </div>
+    </div><!--page title end-->
+    <div class="container pt90 pb50">
+        <div class="row">
+            <div class="col-md-6 mb40">
+                <h4 class="text-uppercase">Address</h4>
+                <p>
+                    <a href="http://maps.google.com/?q=1381 East Ash St., Goldsboro, NC, 227534">
+                        <i class="icon-map-pin">
+                            &nbsp;
+                            3900 East Ash St.
+                            Goldsboro NC 27534
+                        </i>
+                    </a>
+                </p>
+                <br>
+                <h4 class="text-uppercase">Email</h4>
+                <p>
+                    <a href="mailto:info@DalmationLCPW.com">
+                        <i class="icon-envelope"> &nbsp; info@DalmatianLCPW.com</i>
+                    </a>
+                </p>
+                <br>
+                <h4 class="text-uppercase">Phone</h4>
+                <p>
+                    <a href="tel:9199200680">
+                        <i class="icon-phone"> &nbsp; (919) 920-0680</i>
+                    </a>
+                </p>
+                <br>
+                <h4 class="text-uppercase">Social</h4>
+                <div class="clearfix pt10">
+                    <a href="https://www.facebook.com/DalmatianLawn/?fref=ts" class="social-icon si-border si-facebook">
+                        <i class="fa fa-facebook"></i>
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/Dalmatian_Lawn" class="social-icon si-border si-twitter">
+                        <i class="fa fa-twitter"></i>
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="https://plus.google.com/110878081062439072873" class="social-icon si-border si-g-plus">
+                        <i class="fa fa-google-plus"></i>
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 mb40">
+                <h2>Please feel free to contact us!</h2>
+                <p>
+                    You can send us a message here or give us a call for a quote and we will be back to you as soon as possible.
+                </p>
+                <div class="smart-wrap">
+                    <div class="smart-forms smart-container">
+                        @using (Html.BeginForm(new { @class = "contact-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                            <form method="post" action="/Template/smart-form/contact/php/smartprocess.php" id="smart-form">
+                                <div class="form-body">
+
+                                    <div class="section">
+                                        <label class="field prepend-icon">
+                                            <input type="text" name="FromName" id="sendername" class="gui-input" placeholder="Enter name">
+                                            <span class="field-icon"><i class="fa fa-user"></i></span>
+                                        </label>
+                                    </div><!-- end section -->
+
+                                    <div class="section">
+                                        <label class="field prepend-icon">
+                                            <input type="email" name="FromEmail" id="emailaddress" class="gui-input" placeholder="Email address">
+                                            <span class="field-icon"><i class="fa fa-envelope"></i></span>
+                                        </label>
+                                    </div><!-- end section -->
+
+                                    <div class="section">
+                                        <label class="field prepend-icon">
+                                            <input type="text" name="Subject" id="sendersubject" class="gui-input" placeholder="Enter subject">
+                                            <span class="field-icon"><i class="fa fa-lightbulb-o"></i></span>
+                                        </label>
+                                    </div><!-- end section -->
+
+                                    <div class="section">
+                                        <label class="field prepend-icon">
+                                            <textarea class="gui-textarea" id="sendermessage" name="body" placeholder="Enter message"></textarea>
+                                            <span class="field-icon"><i class="fa fa-comments"></i></span>
+                                            <span class="input-hint"> <strong>Hint:</strong> Please enter between 10 - 400 characters.</span>
+                                        </label>
+                                    </div><!-- end section -->
+
+                                    <div class="result"></div><!-- end .result  section -->
+
+                                </div><!-- end .form-body section -->
+                                <div class="form-footer">
+                                    <button type="submit" data-btntext-sending="Sending..." class="button btn btn-primary">Submit</button>
+                                </div><!-- end .form-footer section -->
+                            </form>
+                        }
+                    </div><!-- end .smart-forms section -->
+                </div><!-- end .smart-wrap section -->
+            </div>
+        </div>
+    </div>
+
+    <!--smart-form script-->
+    <script src="/Template/smart-form/contact/js/jquery.form.min.js" type="text/javascript"></script>
+    <script src="/Template/smart-form/contact/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="/Template/smart-form/contact/js/additional-methods.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Template/smart-form/contact/js/smart-form.js"></script> 
